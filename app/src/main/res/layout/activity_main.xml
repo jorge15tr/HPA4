@@ -32,7 +32,7 @@
         app:srcCompat="@drawable/utp" />
 
     <EditText
-        android:id="@+id/editNom"
+        android:id="@+id/editCIP"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="24dp"
@@ -52,16 +52,16 @@
         android:text="Ingresar"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/editNom" />
+        app:layout_constraintTop_toBottomOf="@+id/editCIP" />
 
     <Button
         android:id="@+id/btnVot"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginEnd="144dp"
-        android:layout_marginBottom="68dp"
+        android:layout_marginBottom="64dp"
         android:text="Ver votos"
         app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent" />
+        app:layout_constraintEnd_toEndOf="@+id/btnIng"
+        app:layout_constraintStart_toStartOf="@+id/btnIng" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
