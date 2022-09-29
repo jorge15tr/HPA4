@@ -68,9 +68,11 @@ public class MainActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-
+        Intent intent3 = getIntent();
+        a = intent3.getBooleanExtra("valido", false);
         if(!a)
             rellenador();
+        else entidades = (ArrayList<id_voto>) getIntent().getSerializableExtra("2viaje");
         editCIP=findViewById(R.id.editCIP);
         btnIng=findViewById(R.id.btnIng);
         btnVot=findViewById(R.id.btnVot);
@@ -85,14 +87,16 @@ public class MainActivity extends AppCompatActivity {
                 for(int i = 0; i < entidades.size(); i++){
                     if(idk.equals(entidades.get(i).cip)){
                         if(entidades.get(i).voto != 0){
-                            intent1.putExtra("numero", i);
-                            intent1.putExtra("viaje", entidades);
-                            startActivity(intent1);
+                            //alert dialog de que ya votó
                             vacio = true;
                             break;
                         }
                         else {
-                            //alert dialog de que ya votó
+                            intent1.putExtra("", i);
+                            intent1.putExtra("viaje", entidades);
+                            startActivity(intent1);
+                            vacio = true;
+                            break;
                         }
                     }
                 }
@@ -107,6 +111,10 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public void onClick(View view) {
                 Intent intent2 = new Intent(getApplicationContext(),Resultados.class);
+
+                // intent1.putExtra("acumulador1", i);
+                // intent1.putExtra("acumulador2", i);
+                // intent1.putExtra("acumulador3", i);
                 startActivity(intent2);
             }
         });
