@@ -8,6 +8,7 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.Toast;
 
 import java.util.ArrayList;
 
@@ -70,9 +71,10 @@ public class MainActivity extends AppCompatActivity {
         setContentView(R.layout.activity_main);
         Intent intent3 = getIntent();
         a = intent3.getBooleanExtra("valido", false);
-        if(!a)
-            rellenador();
-        else entidades = (ArrayList<id_voto>) getIntent().getSerializableExtra("2viaje");
+
+        if(a == false) rellenador();
+        else entidades = (ArrayList<id_voto>) getIntent().getSerializableExtra("actual");
+
         editCIP=findViewById(R.id.editCIP);
         btnIng=findViewById(R.id.btnIng);
         btnVot=findViewById(R.id.btnVot);
@@ -87,12 +89,13 @@ public class MainActivity extends AppCompatActivity {
                 for(int i = 0; i < entidades.size(); i++){
                     if(idk.equals(entidades.get(i).cip)){
                         if(entidades.get(i).voto != 0){
-                            //alert dialog de que ya votó
+
+                            Toast.makeText(getApplicationContext(), "Ud ya Voto", Toast.LENGTH_SHORT).show(); //alert dialog de que ya votó
                             vacio = true;
                             break;
                         }
                         else {
-                            intent1.putExtra("", i);
+                            intent1.putExtra("numero", i);
                             intent1.putExtra("viaje", entidades);
                             startActivity(intent1);
                             vacio = true;
@@ -102,7 +105,9 @@ public class MainActivity extends AppCompatActivity {
                 }
 
                 if(!vacio){
-                    //alert dialog de que no existe la cedula ingresada
+
+                    Toast.makeText(getApplicationContext(), "la cedula no existe", Toast.LENGTH_SHORT).show();//alert dialog de que no existe la cedula ingresada
+
                 }
             }
         });
@@ -111,10 +116,26 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public void onClick(View view) {
                 Intent intent2 = new Intent(getApplicationContext(),Resultados.class);
+                int acum1 = 0;
+                int acum2 = 0;
+                int acum3 = 0;
+                for(int i = 0; i < entidades.size(); i++){
 
-                // intent1.putExtra("acumulador1", i);
-                // intent1.putExtra("acumulador2", i);
-                // intent1.putExtra("acumulador3", i);
+                    if(entidades.get(i).voto !=0 ){
+                        if(entidades.get(i).voto == 1 ){
+                            acum1++;
+                        }
+                        else if(entidades.get(i).voto == 2 ){
+                            acum2++;
+                        }
+                        else{
+                            acum3++;
+                        }
+                    }
+                }
+                intent2.putExtra("acumulador1", acum1);
+                intent2.putExtra("acumulador2", acum2);
+                intent2.putExtra("acumulador3", acum3);
                 startActivity(intent2);
             }
         });

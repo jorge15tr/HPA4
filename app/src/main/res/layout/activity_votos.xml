@@ -12,6 +12,7 @@
         android:layout_height="wrap_content"
         android:layout_marginTop="12dp"
         android:text="Omar Aizpura"
+        android:textColor="#009688"
         app:layout_constraintEnd_toEndOf="@+id/imageView4"
         app:layout_constraintStart_toStartOf="@+id/imageView4"
         app:layout_constraintTop_toBottomOf="@+id/imageView4" />
@@ -25,6 +26,7 @@
         android:layout_marginEnd="99dp"
         android:layout_marginBottom="37dp"
         android:text="Elecciones a Rector"
+        android:textColor="#000000"
         app:layout_constraintBottom_toTopOf="@+id/imageView"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
@@ -36,6 +38,7 @@
         android:layout_height="wrap_content"
         android:layout_marginTop="12dp"
         android:text="Vivian Valenzuela"
+        android:textColor="#009688"
         app:layout_constraintEnd_toEndOf="@+id/imageView5"
         app:layout_constraintStart_toStartOf="@+id/imageView5"
         app:layout_constraintTop_toBottomOf="@+id/imageView5" />
@@ -47,9 +50,8 @@
         android:layout_marginStart="99dp"
         android:layout_marginTop="52dp"
         android:layout_marginEnd="99dp"
-        android:layout_marginBottom="37dp"
         android:text="Universidad Tecnologica de Panamá"
-        app:layout_constraintBottom_toTopOf="@+id/imageView"
+        android:textColor="#000000"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
@@ -62,6 +64,7 @@
         android:text="Votar"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.75"
         app:layout_constraintStart_toStartOf="parent" />
 
 
@@ -69,11 +72,12 @@
         android:id="@+id/imageView3"
         android:layout_width="140dp"
         android:layout_height="140dp"
-        android:layout_marginTop="230dp"
+        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.512"
+        app:layout_constraintHorizontal_bias="0.2"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/txtTitu3"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.56"
         app:srcCompat="@drawable/img2" />
 
     <TextView
@@ -81,7 +85,8 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="12dp"
-        android:text="MArtin Candanedo"
+        android:text="Martin Candanedo"
+        android:textColor="#009688"
         app:layout_constraintEnd_toEndOf="@+id/imageView3"
         app:layout_constraintHorizontal_bias="0.49"
         app:layout_constraintStart_toStartOf="@+id/imageView3"
@@ -91,9 +96,10 @@
         android:id="@+id/imageView4"
         android:layout_width="140dp"
         android:layout_height="140dp"
-        android:layout_marginTop="50dp"
-        android:layout_marginEnd="48dp"
+        android:layout_marginTop="40dp"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.8"
+        app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/txtTitu3"
         app:srcCompat="@drawable/img1" />
 
@@ -101,38 +107,58 @@
         android:id="@+id/imageView5"
         android:layout_width="140dp"
         android:layout_height="140dp"
-        android:layout_marginStart="48dp"
-        android:layout_marginTop="50dp"
+        android:layout_marginTop="40dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.2"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/txtTitu3"
         app:srcCompat="@drawable/img3" />
 
     <RadioGroup
+        android:id="@+id/radioGroup"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.8"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.84000003">
+        app:layout_constraintVertical_bias="0.58000004">
 
         <RadioButton
-            android:id="@+id/radioButton"
+            android:id="@+id/rb1"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="Vivian Valenzuela" />
+            android:checked="true"
+            android:onClick="checkButton"
+            android:text="Vivian Valenzuela"
+            android:textColor="#000000" />
 
         <RadioButton
-            android:id="@+id/radioButton2"
+            android:id="@+id/rb2"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="Omar Aizpura" />
+            android:onClick="checkButton"
+            android:text="Omar Aizpura"
+            android:textColor="#000000" />
 
         <RadioButton
-            android:id="@+id/radioButton3"
+            android:id="@+id/rb3"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="Martin Candanedo" />
+            android:onClick="checkButton"
+            android:text="Martin Candanedo"
+            android:textColor="#000000" />
     </RadioGroup>
+
+    <TextView
+        android:id="@+id/tv"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="50dp"
+        android:text="vote por un participante"
+        app:layout_constraintBottom_toBottomOf="@+id/btnvotar"
+        app:layout_constraintEnd_toStartOf="@+id/btnvotar"
+        app:layout_constraintTop_toTopOf="@+id/btnvotar" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

@@ -14,7 +14,7 @@
         android:layout_marginTop="56dp"
         android:layout_marginEnd="99dp"
         android:layout_marginBottom="37dp"
-        android:text="Votación de la nueva organización"
+        android:text="Votación de la Nueva Organización"
         app:layout_constraintBottom_toTopOf="@+id/imageView"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
